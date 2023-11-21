@@ -3,21 +3,23 @@ def to_min(s):
     return int(h) * 60 + int(m)
 
 def solution(book_time):
-    arr = []
+    array = []
     for s, e in book_time:
         s = to_min(s)
         e = to_min(e) + 10
-        arr.append((s, 's'))
-        arr.append((e, 'e'))
+        array.append((s, 's'))
+        array.append((e, 'e'))
 
-    arr.sort()
-    cnt = 0
-    max_cnt = 0
-    for val, flag in arr:
+    array.sort()
+    count = 0
+    max_room = 0
+    for val, flag in array:
         if flag == 's':
-            cnt += 1
-        else:
-            cnt -= 1
-        max_cnt = max(cnt, max_cnt)
+            count += 1
+        elif flag == 'e':
+            count -= 1
+        
+        if count >= max_room:
+            max_room = count
 
-    return max_cnt
+    return max_room
