@@ -20,5 +20,3 @@ def solution(storey):
             answer = min(answer, curr_count + (10 - curr_last_digit) + 1)
 
     return answer
-
-print(solution(4545))
